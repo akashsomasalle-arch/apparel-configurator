@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apparel Configurator</title>
-    <script type="module" crossorigin src="./assets/index-MgX0K2xb.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CVKHcrrh.css">
+    <script type="module" crossorigin src="./assets/index-BrHSxouY.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D_PFg3ed.css">
   </head>
   <body>
     <div id="loader" class="loader">
@@ -19,16 +19,11 @@
     </div>
 
     <aside class="panel panel--left" id="panelLeft">
-      <div class="panel__toggle" id="toggleLeft" title="Toggle panel">
-        <span class="toggle-icon">‹</span>
-      </div>
-
       <div class="nav-rail">
-        <div class="nav-wordmark">MENU</div>
         <nav class="nav-items">
           <button class="nav-item active" data-section="color" title="Color &amp; Material">
             <div class="nav-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" opacity="0.15" />
                 <circle cx="12" cy="12" r="3" fill="currentColor" />
@@ -39,7 +34,7 @@
 
           <button class="nav-item" data-section="upload" title="Upload Artwork">
             <div class="nav-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="3" y="5" width="18" height="14" rx="1" />
                 <circle cx="9" cy="10" r="2" />
                 <path d="M3 16l5-4 4 3 3-2.5 6 4.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -51,18 +46,27 @@
 
           <button class="nav-item" data-section="text" title="Add Text">
             <div class="nav-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M4 7V4h16v3M9 20h6M12 4v16" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
             <span class="nav-item__label">Text</span>
+          </button>
+
+          <button class="nav-item" data-section="saved" title="Saved Designs">
+            <div class="nav-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+              </svg>
+            </div>
+            <span class="nav-item__label">Saved</span>
           </button>
         </nav>
 
         <div class="nav-footer">
           <button class="nav-item" id="auto-rotate-toggle" title="Toggle auto-rotate">
             <div class="nav-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 2a10 10 0 0 1 7.39 16.74" stroke-linecap="round" />
                 <path d="M12 22a10 10 0 0 1-7.39-16.74" stroke-linecap="round" />
                 <polyline points="18 16 22 17 21 13" stroke-linecap="round" stroke-linejoin="round" />
@@ -72,7 +76,7 @@
           </button>
           <button class="nav-item" id="resetCameraBtn" title="Reset view">
             <div class="nav-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M3 12a9 9 0 0 1 15-6.7L21 8M3 12l3-3" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M21 12a9 9 0 0 1-15 6.7L3 16M21 12l-3 3" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -89,16 +93,28 @@
         <div class="viewport-controls"></div>
       </div>
 
-      <div class="component-selector" id="componentSelector">
-        <div class="component-selector__label">Component</div>
-        <div class="component-btns" id="componentBtns">
-          <button class="comp-btn active" data-part="front">Front</button>
-          <button class="comp-btn" data-part="back">Back</button>
-          <button class="comp-btn" data-part="left-sleeve">Left Sleeve</button>
-          <button class="comp-btn" data-part="right-sleeve">Right Sleeve</button>
-          <button class="comp-btn" data-part="neckband">Neck band</button>
-          <button class="comp-btn" data-part="all">All Parts</button>
-        </div>
+      <div class="top-right-actions">
+        <button class="btn btn--light btn--sm" id="btnSaveAsDefault" style="height: 32px; padding: 0 16px; font-weight: 600">
+          Save Design As
+        </button>
+
+        <button class="btn btn--ghost btn--sm" id="btnSaveCurrent" style="display: none; height: 32px; padding: 0 16px; font-weight: 600">
+          Save Current
+        </button>
+
+        <button class="btn btn--light btn--sm" id="btnSaveNew" style="display: none; height: 32px; padding: 0 16px; font-weight: 600">
+          Save New
+        </button>
+
+        <button class="theme-toggle" id="themeToggle" title="Toggle light / dark mode" aria-label="Toggle mode">
+          <span class="theme-toggle__knob">
+            <span class="theme-toggle__icon" id="themeIcon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
 
       <div class="view-toggle">
@@ -136,7 +152,7 @@
 
     <aside class="panel panel--right" id="panelRight">
       <div class="panel__toggle panel__toggle--right" id="toggleRight" title="Toggle panel">
-        <span class="toggle-icon">›</span>
+        <span class="toggle-icon">‹</span>
       </div>
 
       <div class="panel__inner">
@@ -146,9 +162,15 @@
             <h2 class="panel__title">Color</h2>
           </header>
 
-          <div class="active-part-badge" id="colorActivePart">
-            <span class="active-part-dot"></span>
-            <span class="active-part-name">Front</span>
+          <div class="custom-dropdown" id="colorPartSelector">
+            <button class="dropdown-trigger" type="button">
+              <div class="dropdown-trigger-left">
+                <span class="active-part-dot"></span>
+                <span class="active-part-name">Front</span>
+              </div>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <ul class="dropdown-list"></ul>
           </div>
 
           <div class="section-divider"><span>Color</span></div>
@@ -165,8 +187,8 @@
           <div class="control-row" style="margin-top: 8px">
             <label class="control-label">Background</label>
             <div class="color-input-wrap">
-              <input type="color" id="scene-color-picker" value="#535555" class="native-color-picker" title="Pick a background color" />
-              <input type="text" class="color-hex-input" id="sceneColorHex" value="#535555" maxlength="7" />
+              <input type="color" id="scene-color-picker" value="#D6D6D6" class="native-color-picker" title="Pick a background color" />
+              <input type="text" class="color-hex-input" id="sceneColorHex" value="#D6D6D6" maxlength="7" />
             </div>
           </div>
 
@@ -186,82 +208,50 @@
           <header class="panel__head">
             <span class="panel__eyebrow">02 — Upload images on mesh</span>
             <h2 class="panel__title">Artwork</h2>
-            <p class="panel__sub">Place &amp; transform logos on your garment</p>
+            <p class="panel__sub">Place &amp; transform logos on your garment.</p>
           </header>
 
-          <div class="active-part-badge" id="uploadActivePart">
-            <span class="active-part-dot"></span>
-            <span class="active-part-name">Front</span>
+          <div class="flex-header" style="margin-bottom: 8px">
+            <span class="flex-header-title">Target Placement</span>
           </div>
 
-          <div class="upload-zone" id="uploadZone">
-            <input type="file" id="image-upload" accept="image/*" />
-            <div class="upload-zone__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5" />
-                <circle cx="18" cy="20" r="4" stroke="currentColor" stroke-width="1.5" />
-                <path d="M6 32l10-8 8 6 6-5 12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M24 6v12M20 10l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <p class="upload-zone__text">Drop image here</p>
-            <p class="upload-zone__hint">PNG, JPG, SVG, WebP • Placed on selected part</p>
-            <button class="btn btn--ghost" id="image-upload-btn">Choose File</button>
-          </div>
-
-          <div class="logo-controls" id="logoControls" style="display: none">
-            <div class="section-divider"><span>Selected Layer</span></div>
-            <div class="control-row">
-              <label class="control-label">Opacity</label>
-              <div class="slider-wrap">
-                <input type="range" class="slider" id="logoOpacity" min="10" max="100" value="100" />
-                <span class="slider-val" id="logoOpacityVal">100%</span>
+          <div class="custom-dropdown" id="uploadPartSelector" style="margin-bottom: 20px">
+            <button class="dropdown-trigger" type="button">
+              <div class="dropdown-trigger-left">
+                <span class="active-part-dot"></span>
+                <span class="active-part-name">Front</span>
               </div>
-            </div>
-            <div class="control-row">
-              <label class="control-label">Blend</label>
-              <select class="select" id="logoBlend">
-                <option value="source-over">Normal</option>
-                <option value="multiply">Multiply</option>
-                <option value="screen">Screen</option>
-                <option value="overlay">Overlay</option>
-              </select>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn--sm btn--ghost" id="cloneLogoBtn">⧉ Duplicate</button>
-              <button class="btn btn--sm btn--danger" id="deleteLogoBtn">✕ Remove</button>
-            </div>
-          </div>
-
-          <div class="tips-block">
-            <div class="section-divider"><span>How to use</span></div>
-            <ul class="tips-list">
-              <li>
-                <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></span> 
-                Select a garment part above
-              </li>
-              <li>
-                <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span> 
-                Upload or drop your artwork
-              </li>
-              <li>
-                <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span> 
-                Drag corners to resize
-              </li>
-              <li>
-                <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span> 
-                Top-right handle rotates
-              </li>
-              <li>
-                <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 3v7"/><path d="M12 10h6"/></svg></span> 
-                Right-click for layer & lock options
-              </li>
-              <li>
-                <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span> 
-                Delete key removes selected
-              </li>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <ul class="dropdown-list">
+              <li class="dropdown-item active" data-part="front">Front</li>
+              <li class="dropdown-item" data-part="back">Back</li>
+              <li class="dropdown-item" data-part="left-sleeve">Left Sleeve</li>
+              <li class="dropdown-item" data-part="right-sleeve">Right Sleeve</li>
+              <li class="dropdown-item" data-part="neckband">Neck band</li>
+              <li class="dropdown-item" data-part="all">All Parts</li>
             </ul>
           </div>
+          <input type="file" id="image-upload" accept="image/*" style="display: none" />
+
+          <button class="primary-upload-btn" id="primaryUploadBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+            Upload
+          </button>
+
+          <div class="flex-header" style="margin-top: 24px">
+            <span class="flex-header-title">
+              All images
+              <span id="assetCountLabel" style="font-weight: 400; color: var(--text-dim); margin-left: 6px; font-size: 11px; letter-spacing: 0.1em;">(0/10)</span>
+            </span>
+            <span class="flex-header-link" id="viewAllAssetsBtn">View All</span>
+          </div>
+
+          <div class="asset-grid" id="assetGrid"></div>
         </div>
 
         <div class="section-panel hidden" id="sectionText">
@@ -271,9 +261,22 @@
             <p class="panel__sub">Type and position custom text on your garment.</p>
           </header>
 
-          <div class="active-part-badge" id="textActivePart">
-            <span class="active-part-dot"></span>
-            <span class="active-part-name">Front</span>
+          <div class="custom-dropdown" id="textPartSelector">
+            <button class="dropdown-trigger" type="button">
+              <div class="dropdown-trigger-left">
+                <span class="active-part-dot"></span>
+                <span class="active-part-name">Front</span>
+              </div>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <ul class="dropdown-list">
+              <li class="dropdown-item active" data-part="front">Front</li>
+              <li class="dropdown-item" data-part="back">Back</li>
+              <li class="dropdown-item" data-part="left-sleeve">Left Sleeve</li>
+              <li class="dropdown-item" data-part="right-sleeve">Right Sleeve</li>
+              <li class="dropdown-item" data-part="neckband">Neck band</li>
+              <li class="dropdown-item" data-part="all">All Parts</li>
+            </ul>
           </div>
 
           <div class="control-group">
@@ -281,9 +284,8 @@
             <button class="btn btn--light" id="addTextBtn">Add to Garment</button>
           </div>
 
-          <div id="textOnlyControls" style="display: none; margin-top: 24px;">
+          <div id="textOnlyControls" style="display: none; margin-top: 24px">
             <div class="section-divider"><span>Selected Typography</span></div>
-            
             <div class="control-row">
               <label class="control-label">Font</label>
               <select id="textFont" class="select">
@@ -294,12 +296,25 @@
                 <option value="Impact">Impact</option>
               </select>
             </div>
-
             <div class="control-row">
               <label class="control-label">Color</label>
               <input type="color" id="textColorPicker" value="#000000" class="native-color-picker" />
             </div>
           </div>
+        </div>
+
+        <div class="section-panel hidden" id="sectionSaved">
+          <header class="panel__head">
+            <span class="panel__eyebrow">04 — Library</span>
+            <h2 class="panel__title">Saved Designs</h2>
+            <p class="panel__sub">Access your saved configurations and templates.</p>
+          </header>
+
+          <div class="flex-header">
+            <span class="flex-header-title" id="savedDesignsLabel">All designs</span>
+          </div>
+
+          <div class="saved-grid" id="savedDesignsGrid"></div>
         </div>
 
         <div class="section-panel hidden" id="sectionAi">
@@ -324,7 +339,7 @@
       </div>
     </aside>
 
-    <div id="contextMenu" class="context-menu" style="display: none;">
+    <div id="contextMenu" class="context-menu" style="display: none">
       <button class="context-menu-item" id="ctxBringFront">
         <span>Bring to Front</span><span class="ctx-shortcut">⇧⌘]</span>
       </button>
@@ -348,6 +363,148 @@
       <button class="context-menu-item danger" id="ctxDelete">
         <span>Delete</span><span class="ctx-shortcut">⌫</span>
       </button>
+    </div>
+
+    <aside class="panel panel--properties" id="panelProperties">
+      <header class="properties-header">
+        <h3 class="panel__title" style="font-size: 14px; margin: 0; letter-spacing: 0.1em; text-transform: uppercase;">Properties</h3>
+      </header>
+
+      <div class="properties-section">
+        <div class="section-divider"><span>Attributes</span></div>
+        <div class="prop-grid">
+          <div class="prop-group">
+            <label>Width</label>
+            <input type="number" id="propWidth" class="minimal-input" />
+          </div>
+          <div class="prop-group">
+            <label>Height</label>
+            <input type="number" id="propHeight" class="minimal-input" />
+          </div>
+          <div class="prop-group">
+            <label>Position X</label>
+            <input type="number" id="propX" class="minimal-input" />
+          </div>
+          <div class="prop-group">
+            <label>Position Y</label>
+            <input type="number" id="propY" class="minimal-input" />
+          </div>
+          <div class="prop-group">
+            <label>Rotate</label>
+            <input type="number" id="propRotate" class="minimal-input" />
+          </div>
+          <div class="prop-group">
+            <label>Scale %</label>
+            <input type="number" id="propScale" class="minimal-input" value="100" />
+          </div>
+        </div>
+      </div>
+
+      <div class="properties-section" id="logoControls" style="display: none; padding-top: 0">
+        <div class="section-divider"><span>Layer Settings</span></div>
+        <div class="control-row">
+          <label class="control-label">Opacity</label>
+          <div class="slider-wrap">
+            <input type="range" class="slider" id="logoOpacity" min="10" max="100" value="100" />
+            <span class="slider-val" id="logoOpacityVal">100%</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="propertiesEmptyState" class="properties-empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+        </svg>
+        <p>Upload an image or add text first</p>
+      </div>
+
+      <div class="properties-section" style="flex: 1; overflow-y: auto; padding-top: 0">
+        <div class="section-divider"><span>Layers</span></div>
+        <ul class="layers-list" id="layersList"></ul>
+      </div>
+
+      <div class="properties-section" style="padding-top: 0; border-top: 1px solid var(--border); background: var(--surface2);">
+        <div class="section-divider" style="margin-top: 16px"><span>How to use</span></div>
+        <ul class="tips-list">
+          <li>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" /><path d="M13 13l6 6" /></svg></span>
+            Select a garment part above
+          </li>
+          <li>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg></span>
+            Upload or drop your artwork
+          </li>
+          <li>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" y1="3" x2="14" y2="10" /><line x1="3" y1="21" x2="10" y2="14" /></svg></span>
+            Drag corners to resize
+          </li>
+          <li>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg></span>
+            Top-right handle rotates
+          </li>
+          <li>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="6" /><path d="M12 3v7" /><path d="M12 10h6" /></svg></span>
+            Right-click for layer & lock options
+          </li>
+          <li>
+            <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
+            Delete key removes selected
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="asset-modal-overlay hidden" id="assetModalOverlay">
+      <div class="asset-modal">
+        <div class="asset-modal-header">
+          <h3 class="asset-modal-title">Asset Library</h3>
+          <div class="asset-modal-actions">
+            <button class="btn btn--danger btn--sm" id="clearAllAssetsBtn">Clear All</button>
+            <button class="btn-text" id="closeAssetModalBtn">Close</button>
+          </div>
+        </div>
+        <div class="asset-modal-grid" id="modalAssetGrid"></div>
+      </div>
+    </div>
+
+    <div class="asset-modal-overlay hidden" id="savePromptOverlay" style="z-index: 10000">
+      <div class="alert-modal" style="max-width: 360px; text-align: left; padding: 24px">
+        <h3 class="asset-modal-title" style="font-size: 16px; margin-bottom: 8px">Name your design</h3>
+        <p class="alert-message" style="margin-bottom: 16px; text-align: left">
+          Enter a name for this template so you can find it easily in your library.
+        </p>
+        <input type="text" id="saveDesignNameInput" class="minimal-input" placeholder="Custom Design" style="margin-bottom: 24px; width: 100%; border-color: var(--border-hi);" />
+        <div style="display: flex; gap: 8px">
+          <button class="btn btn--ghost" id="cancelSaveBtn" style="flex: 1">Cancel</button>
+          <button class="btn btn--light" id="confirmSaveBtn" style="flex: 1">Save Design</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="asset-modal-overlay hidden" id="customConfirmOverlay" style="z-index: 10000">
+      <div class="alert-modal">
+        <div class="alert-icon" style="color: var(--danger)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <h3 class="asset-modal-title" style="font-size: 16px; margin-bottom: 4px">Confirm Action</h3>
+        <p class="alert-message" id="customConfirmMessage">Are you sure?</p>
+        <div style="display: flex; gap: 8px; margin-top: 16px">
+          <button class="btn btn--ghost" id="customConfirmCancelBtn" style="flex: 1">Cancel</button>
+          <button class="btn btn--danger" id="customConfirmActionBtn" style="flex: 1">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toastNotification" class="toast">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="toast-icon">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span id="toastMessage">Success!</span>
     </div>
 
   </body>

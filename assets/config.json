@@ -1,0 +1,42 @@
+{
+  "project": {
+    "name": "Apparel Configurator v2",
+    "version": "1.0.0"
+  },
+  "scene": {
+    "backgroundColor": "#D6D6D6",
+    "exposure": 1.839,
+    "environmentIntensity": 1.374,
+    "environmentPath": "./hdr/panorama.hdr"
+  },
+  "model": {
+    "path": "./models/tshirt.glb",
+    "parts": [
+      "front",
+      "back",
+      "left-sleeve",
+      "right-sleeve",
+      "neckband",
+      "all"
+    ],
+    "defaultColors": {
+      "front": "#FFFFFF",
+      "back": "#FFFFFF",
+      "left-sleeve": "#FFFFFF",
+      "right-sleeve": "#FFFFFF",
+      "neckband": "#FFFFFF",
+      "all": "#FFFFFF"
+    }
+  },
+  "camera": {
+    "defaultZ": 8,
+    "views": {
+      "front": { "x": 0, "y": 0, "z": 8 },
+      "back": { "x": 0, "y": 0, "z": -8 },
+      "left-sleeve": { "x": -5.5, "y": 0.5, "z": 5 },
+      "right-sleeve": { "x": 5.5, "y": 0.5, "z": 5 },
+      "neckband": { "x": 0, "y": 4.5, "z": 5.5 },
+      "all": { "x": 0, "y": 0, "z": 10 }
+    }
+  }
+}
