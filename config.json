@@ -1,0 +1,92 @@
+{
+  "project": {
+    "name": "Apparel Configurator v2",
+    "version": "1.0.0"
+  },
+  "scene": {
+    "backgroundColor": "#D6D6D6",
+    "exposure": 1.839,
+    "environmentIntensity": 1.374,
+    "environmentPath": "./hdr/panorama.hdr"
+  },
+  "graphics": {
+    "canvasSize": 2048,
+    "logoSizeRatio": 0.15,
+    "textFontSize": 100,
+    "textCanvasHeight": 140,
+    "textDefaultFont": "sans-serif",
+    "textDefaultColor": "#000000"
+  },
+  "model": {
+    "path": "./models/tshirt.glb",
+    "parts": [
+      "front",
+      "back",
+      "left-sleeve",
+      "right-sleeve",
+      "neckband",
+      "all"
+    ],
+    "defaultColors": {
+      "front": "#FFFFFF",
+      "back": "#FFFFFF",
+      "left-sleeve": "#FFFFFF",
+      "right-sleeve": "#FFFFFF",
+      "neckband": "#FFFFFF",
+      "all": "#FFFFFF"
+    }
+  },
+  "camera": {
+    "defaultZ": 8,
+    "views": {
+      "front": { "x": 0, "y": 0, "z": 8 },
+      "back": { "x": 0, "y": 0, "z": -8 },
+      "left-sleeve": { "x": -5.5, "y": 0.5, "z": 5 },
+      "right-sleeve": { "x": 5.5, "y": 0.5, "z": 5 },
+      "neckband": { "x": 0, "y": 4.5, "z": 5.5 },
+      "all": { "x": 0, "y": 0, "z": 10 }
+    }
+  },
+  "ui": {
+    "sections": ["color", "upload", "text", "saved", "ai"],
+    "assetLimit": 10,
+    "colorPalette": [
+      { "hex": "#FFFFFF", "name": "Pure White" },
+      { "hex": "#F5F0E8", "name": "Cream" },
+      { "hex": "#E8D5B0", "name": "Sand" },
+      { "hex": "#C8AA6E", "name": "Gold" },
+      { "hex": "#D4B896", "name": "Camel" },
+      { "hex": "#B5A99A", "name": "Taupe" },
+      { "hex": "#8C7B6E", "name": "Mocha" },
+      { "hex": "#6B5B4E", "name": "Espresso" },
+      { "hex": "#3D2B1F", "name": "Dark Umber" },
+      { "hex": "#1A1008", "name": "Midnight" },
+      { "hex": "#2C3E50", "name": "Navy" },
+      { "hex": "#4A6741", "name": "Forest" },
+      { "hex": "#8B9D6A", "name": "Sage" },
+      { "hex": "#C4A882", "name": "Wheat" },
+      { "hex": "#9B7B5C", "name": "Hazelnut" },
+      { "hex": "#D4C5B0", "name": "Linen" },
+      { "hex": "#E8E0D5", "name": "Pearl" },
+      { "hex": "#7A6652", "name": "Walnut" },
+      { "hex": "#000000", "name": "Pure Black" },
+      { "hex": "#EAEAEA", "name": "Light Grey" },
+      { "hex": "#999999", "name": "Mid Grey" },
+      { "hex": "#333333", "name": "Dark Grey" },
+      { "hex": "#E05C5C", "name": "Crimson" },
+      { "hex": "#C43A3A", "name": "Ruby Red" },
+      { "hex": "#E68A5C", "name": "Burnt Orange" },
+      { "hex": "#E8B84E", "name": "Mustard" },
+      { "hex": "#F2D873", "name": "Pale Yellow" },
+      { "hex": "#6E9C76", "name": "Mint" },
+      { "hex": "#3B7A57", "name": "Jungle Green" },
+      { "hex": "#5C85E0", "name": "Sky Blue" },
+      { "hex": "#3A6EA6", "name": "Ocean Blue" },
+      { "hex": "#234B7A", "name": "Deep Royal" },
+      { "hex": "#8A5CE0", "name": "Lavender" },
+      { "hex": "#5C3A99", "name": "Plum" },
+      { "hex": "#D966A5", "name": "Rose Pink" },
+      { "hex": "#A63A70", "name": "Magenta" }
+    ]
+  }
+}
