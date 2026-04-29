@@ -25,7 +25,8 @@
       "left-sleeve",
       "right-sleeve",
       "neckband",
-      "all"
+      "all",
+      "inside"
     ],
     "defaultColors": {
       "front": "#FFFFFF",
@@ -33,7 +34,8 @@
       "left-sleeve": "#FFFFFF",
       "right-sleeve": "#FFFFFF",
       "neckband": "#FFFFFF",
-      "all": "#FFFFFF"
+      "all": "#FFFFFF",
+      "inside": "#FFFFFF"
     }
   },
   "camera": {
